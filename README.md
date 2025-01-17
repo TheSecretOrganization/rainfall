@@ -5,4 +5,4 @@
 - [Format string attacks](https://axcheron.github.io/exploit-101-format-strings/)
 - [Return-to-libc](https://beta.hackndo.com/retour-a-la-libc/)
 - [Pattern generator](https://wiremask.eu/tools/buffer-overflow-pattern-generator/)
-- [Shellcode list](http://shell-storm.org/shellcode/)
+- [Shellcode list](http://shell-storm.org/shellcode/) ([The Best ^^](https://shell-storm.org/shellcode/files/shellcode-575.html))
