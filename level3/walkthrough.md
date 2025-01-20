@@ -2,7 +2,7 @@ While decompiling the binary we can observe the use of the function `printf` wit
 
 ## Investigation
 
-First, we need to know where or input ar located in the stack. For this we can give the binary an input like `AAAA.%x.%x.%x.%x.%x.%x.%x.%x`. Giving this, we got the ouput
+First, we need to know where or input are located in the stack. For this we can give the binary an input like `AAAA.%x.%x.%x.%x.%x.%x.%x.%x`. Giving this, we got the ouput
 ```
 AAAA.200.b7fd1ac0.b7ff37d0.41414141.2e78252e.252e7825.78252e78.2e78252e
 ```
