@@ -1,6 +1,6 @@
 # Rainfall
 
-### Usefull links
+### Useful links
 - [Buffer overflows](https://beta.hackndo.com/buffer-overflow/)
 - [Format string attacks](https://axcheron.github.io/exploit-101-format-strings/)
 - [Return-to-libc](https://beta.hackndo.com/retour-a-la-libc/)
